@@ -23,34 +23,47 @@ export class LetterService {
       orientation: 'portrait',
       unit: 'mm'
     });
-    let txt = this.titleText;
-    txt += '\n' + this.getDate() + '\n';
+    let txt = '';
+    doc.setFontSize(14);
+
+    doc.text(this.titleText, 20, 100);
+
+    doc.setFontSize(12);
+    doc.text(this.getDate(), 170, 110);
     txt += this.introText;
     for (const textBlock of company.textBlocks) {
       if (textBlock.selected === true) {
         txt += ' - ' + textBlock.content + '\n';
       }
     }
-    if (txt.substr(txt.length - 1) === ',') {
-      txt = txt.substr(0, txt.length - 1) + '.';
+
+    // remove trailing , and replace by .
+    const lastChar = txt.substr(txt.length - 2);
+    if (lastChar === ',\n') {
+      txt = txt.substr(0, txt.length - 2) + '.\n';
     }
-    txt += this.endClause;
+
+    // sender
+    doc.text(doc.splitTextToSize(sender, 40), 140, 20);
+    // split sender
+    const senderLines = sender.split('\n');
+    const senderName = senderLines[0];
+    txt += this.endClause + '\n\n\n';
+    txt += senderName;
     doc.setLineWidth(180);
     doc.setFontSize(12);
 
-    // sender
-    doc.text(doc.splitTextToSize(sender, 40), 140,20);
+
     // recipient
     const recipient = company.companyName + '\n' +
       company.companyAddress + '\n' +
       company.companyZip + ' ' + company.companyCity + '\n' +
       company.companyCountry || '';
     doc.text(recipient, 20, 60);
-    doc.text(doc.splitTextToSize(txt, 180), 20, 100);
+    doc.text(doc.splitTextToSize(txt, 170), 20, 120);
     const filenName = company.companyName.replace(/[^A-Za-z0-9]/, '_');
     // doc.text(doc.splitTextToSize(txt, 180), 20, 100);
     doc.save(filenName + '.pdf');
-
   }
   public getDate(): string {
     const today = new Date();
