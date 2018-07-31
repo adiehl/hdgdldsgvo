@@ -9,31 +9,33 @@
     <!-- Firmenliste -->
 
     <div class="col-md-4 order-md-2 mb-4">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Firmenliste</span>
-        <span class="badge badge-secondary badge-pill">{{companyList.length}}</span>
-      </h4>
+      <ng-container *ngIf="companyList.length">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Firmenliste</span>
+          <span class="badge badge-secondary badge-pill">{{companyList.length}}</span>
+        </h4>
 
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let company of companyList">{{company.companyName}}</li>
-      </ul>
+        <ul class="list-group list-group-flush" *ngFor="let company of companyList">
+          <li class="list-group-item">
+            {{company.companyName}}
+            <span class="badge badge-secondary float-right">PDF</span>
+          </li>
+        </ul>
 
-      <form class="card p-2 mb-3">
-        <button type="submit" class="btn btn-primary">Drucken</button>
-      </form>
+        <form class="p-2 mb-3">
+          <button type="submit" class="btn btn-primary" (click)="printPdf(company)">Drucken</button>
+        </form>
+      </ng-container>
 
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Archiv</span>
-        <span class="badge badge-secondary badge-pill">{{companyList.length}}</span>
-      </h4>
+      <!--<h4 class="d-flex justify-content-between align-items-center mb-3">-->
+        <!--<span class="text-muted">Archiv</span>-->
+        <!--<span class="badge badge-secondary badge-pill">{{companyList.length}}</span>-->
+      <!--</h4>-->
 
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let company of companyList"><h5>{{company.companyName}}</h5></li>
-      </ul>
+      <!--<ul class="list-group">-->
+        <!--<li class="list-group-item" *ngFor="let company of companyList"><h5>{{company.companyName}}</h5></li>-->
+      <!--</ul>-->
 
-      <form class="card p-2">
-        <button type="submit" class="btn btn-primary">Drucken</button>
-      </form>
     </div>
 
     <!-- Details -->
@@ -42,7 +44,7 @@
       <form class="needs-validation" novalidate>
         <div class="mb-3">
           <label for="companyName">Firmenname</label>
-          <input type="text" class="form-control" id="companyName" placeholder="" value="" required>
+          <input [(ngModel)]="currentCompany.companyName" name="companyName" type="text" class="form-control" id="companyName" placeholder="" value="" required>
           <div class="invalid-feedback">
             Firmenname muss angegeben werden
           </div>
@@ -50,7 +52,7 @@
 
         <div class="mb-3">
           <label for="companyAddress">Straße / Postfach</label>
-          <input type="text" class="form-control" id="companyAddress" placeholder="" value="" required>
+          <input [(ngModel)]="currentCompany.companyAddress" name="companyAddress"  type="text" class="form-control" id="companyAddress" placeholder="" value="" required>
           <div class="invalid-feedback">
             Anchrift erforderlich
           </div>
@@ -59,14 +61,14 @@
         <div class="row">
           <div class="col-md-3 mb-3">
             <label for="companyZip">PLZ</label>
-            <input type="text" class="form-control" id="companyZip" placeholder="" value="" required>
+            <input [(ngModel)]="currentCompany.companyZip" name="companyZip"  type="text" class="form-control" id="companyZip" placeholder="" value="" required>
             <div class="invalid-feedback">
               PLZ erforderlich
             </div>
           </div>
           <div class="col-md-9 mb-3">
             <label for="companyCity">Ort</label>
-            <input type="text" class="form-control" id="companyCity" placeholder="" value="" required>
+            <input [(ngModel)]="currentCompany.companyCity" name="companyCity"  type="text" class="form-control" id="companyCity" placeholder="" value="" required>
             <div class="invalid-feedback">
               Ort erforderlich
             </div>
@@ -75,18 +77,18 @@
 
         <div class="mb-3">
           <label for="companyCountry">Land (nur bei Ausland)</label>
-          <input type="text" class="form-control" id="companyCountry" placeholder="" value="">
+          <input [(ngModel)]="currentCompany.companyCountry" name="companyCountry"  type="text" class="form-control" id="companyCountry" placeholder="" value="">
         </div>
         <div class="mb-3">
           <label for="contractNumber">Vertragsnummer, Geschäftszeichen, Kennzeichen (Optional)</label>
-          <input type="text" class="form-control" id="contractNumber" placeholder="Telefonnummer, Vertragsnummer, Aktenzeichen, etc." value="">
+          <input [(ngModel)]="currentCompany.contractNumber" name="contractNumber"  type="text" class="form-control" id="contractNumber" placeholder="Telefonnummer, Vertragsnummer, Aktenzeichen, etc." value="">
 
         </div>
 
 
         <div class="mb-3">
           <label for="remarks">Weitere Bemerkungen (optional)</label>
-          <textarea class="form-control" id="remarks" placeholder="z. B. bezug auf ein vorheriges Schreiben, präzisierung des Auskunftsersuchens"></textarea>
+          <textarea [(ngModel)]="currentCompany.remarks" name="remarks"  class="form-control" id="remarks" placeholder="z. B. bezug auf ein vorheriges Schreiben, präzisierung des Auskunftsersuchens"></textarea>
 
         </div>
 
@@ -94,18 +96,18 @@
         <h4 class="mb-3">Datenschutzrechtliche Selbstauskunft</h4>
 
         <p>(Vertragsnummer)</p>
-        <div class="float-right">01.01.2018</div>
+        <div class="float-right">{{getDate()}}</div>
 
 
 
         <div class="custom-control custom-checkbox" *ngFor="let textblock of textblocks1">
-          <input type="checkbox" class="custom-control-input" id="{{textblock.name}}">
+          <input [(ngModel)]="textblock.selected" name="{{textblock.name}}" type="checkbox" class="custom-control-input" id="{{textblock.name}}">
           <label class="custom-control-label" for="{{textblock.name}}">{{textblock.content}}</label>
         </div>
 
         <hr class="mb-4">
 
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Eintrag speichern</button>
+        <button (click)="saveCompany()" class="btn btn-primary btn-lg btn-block" type="submit">Eintrag speichern</button>
       </form>
     </div>
   </div>
