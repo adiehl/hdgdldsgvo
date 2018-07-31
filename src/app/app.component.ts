@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Company } from '../models/Company';
 import { Textblock } from '../models/Textblock';
+const jsPDF = require('jspdf');
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,11 @@ import { Textblock } from '../models/Textblock';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  /**
+   * Sender of the letter
+   * @type {string}
+   */
+  sender = '';
   /**
    * Available Textblocks for the first letter
    * @type {({name: string; content: string} | {name: string; content: string; selected: boolean})[]}
@@ -44,7 +50,7 @@ export class AppComponent {
    * Gets current date in german format
    * @returns {string}
    */
-  static getDate(): string {
+  public getDate(): string {
     const today = new Date();
     let dd: string = today.getDate().toString();
     let mm: string = (today.getMonth() + 1).toString();
@@ -60,6 +66,9 @@ export class AppComponent {
     return dd + '.' + mm + '.' + yyyy;
   }
 
+  /**
+   * saves company to localstorage
+   */
   public saveCompany() {
     // clone entry the stupid js way
     const newCompany: Company = JSON.parse(JSON.stringify(this.currentCompany));
@@ -71,6 +80,13 @@ export class AppComponent {
     }
     window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
   }
+
+  /**
+   * saves sender to localstorage
+   */
+  public saveSender() {
+    window.localStorage.setItem('sender', this.sender);
+  }
   /**
    * constructor, called when instantiated
    */
@@ -79,5 +95,15 @@ export class AppComponent {
     if (storeCompanylist !== null) {
       this.companyList = JSON.parse(storeCompanylist);
     }
+    const storeSender = window.localStorage.getItem('sender');
+    if (storeSender !== null) {
+      this.sender = storeSender;
+    }
+  }
+
+  public printPdf(company: Company) {
+    const doc = new jsPDF();
+    doc.text('Hello', 20, 20);
+    doc.save('table.pdf');
   }
 }

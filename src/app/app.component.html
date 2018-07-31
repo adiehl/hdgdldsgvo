@@ -1,6 +1,5 @@
 <div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <div class="py-2 text-center">
     <h2>DSGVO Generator</h2>
     <p class="lead">Lege eine Liste mit Firmen an, die Du anschreiben möchtest, und kreuze die Textbausteine an, die Du verwenden willst.</p>
   </div>
@@ -11,22 +10,25 @@
     <div class="col-md-4 order-md-2 mb-4">
       <ng-container *ngIf="companyList.length">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Firmenliste</span>
+          Firmenliste
           <span class="badge badge-secondary badge-pill">{{companyList.length}}</span>
         </h4>
 
         <ul class="list-group list-group-flush" *ngFor="let company of companyList">
           <li class="list-group-item">
             {{company.companyName}}
-            <span class="badge badge-secondary float-right">PDF</span>
+            <span class="badge badge-secondary float-right" (click)="printPdf(company)">PDF</span>
           </li>
         </ul>
 
-        <form class="p-2 mb-3">
-          <button type="submit" class="btn btn-primary" (click)="printPdf(company)">Drucken</button>
-        </form>
+        <!--<form class="p-2 mb-3">-->
+          <!--<button type="submit" class="btn btn-primary">Drucken</button>-->
+        <!--</form>-->
       </ng-container>
-
+      <h4 class="d-flex justify-content-between align-items-center mb-3 mt-2">
+        Absender
+      </h4>
+      <textarea rows="6" (change)="saveSender()" [(ngModel)]="sender" class="form-control"></textarea>
       <!--<h4 class="d-flex justify-content-between align-items-center mb-3">-->
         <!--<span class="text-muted">Archiv</span>-->
         <!--<span class="badge badge-secondary badge-pill">{{companyList.length}}</span>-->
