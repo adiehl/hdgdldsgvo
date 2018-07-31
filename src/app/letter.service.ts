@@ -62,9 +62,10 @@ export class LetterService {
 
     // recipient
     const recipient = company.companyName + '\n' +
-      company.companyAddress + '\n' +
-      company.companyZip + ' ' + company.companyCity + '\n' +
-      company.companyCountry || '';
+      (company.companyAddress ? company.companyAddress : '') + '\n' +
+      (company.companyZip ? company.companyZip + ' ' : '') +
+      (company.companyCity ? company.companyCity : '') + '\n' +
+      (company.companyCountry ? company.companyCountry : '');
     doc.text(recipient, 20, 60);
     doc.text(doc.splitTextToSize(txt, 170), 20, 120);
     const filenName = company.companyName.replace(/[^A-Za-z0-9]/, '_');
