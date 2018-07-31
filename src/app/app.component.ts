@@ -61,7 +61,7 @@ export class AppComponent {
     // clone entry the stupid js way
     const newCompany: Company = JSON.parse(JSON.stringify(this.currentCompany));
     newCompany.textBlocks = this.textblocks1;
-    this.companyList.push(newCompany);
+    this.companyList.push(JSON.parse(JSON.stringify(newCompany)));
     window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
     // reset values
     this.currentCompany = new Company();
