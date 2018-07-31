@@ -51,19 +51,7 @@ export class AppComponent {
    * @returns {string}
    */
   public getDate(): string {
-    const today = new Date();
-    let dd: string = today.getDate().toString();
-    let mm: string = (today.getMonth() + 1).toString();
-    const yyyy = today.getFullYear();
-
-    if (parseInt(dd, 10) < 10) {
-      dd = '0' + dd;
-    }
-
-    if (parseInt(mm, 10) < 10) {
-      mm = '0' + mm;
-    }
-    return dd + '.' + mm + '.' + yyyy;
+    return this.letterService.getDate();
   }
 
   /**
@@ -74,11 +62,12 @@ export class AppComponent {
     const newCompany: Company = JSON.parse(JSON.stringify(this.currentCompany));
     newCompany.textBlocks = this.textblocks1;
     this.companyList.push(newCompany);
+    window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
+    // reset values
     this.currentCompany = new Company();
     for (const textBlock of this.textblocks1) {
       textBlock.selected = false;
     }
-    window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
   }
 
   /**
