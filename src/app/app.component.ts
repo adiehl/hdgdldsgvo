@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Company } from '../models/Company';
 import { Textblock } from '../models/Textblock';
-const jsPDF = require('jspdf');
+import { LetterService } from './letter.service';
 
 @Component({
   selector: 'app-root',
@@ -90,7 +90,7 @@ export class AppComponent {
   /**
    * constructor, called when instantiated
    */
-  constructor() {
+  constructor(public letterService: LetterService) {
     const storeCompanylist = window.localStorage.getItem('companyList');
     if (storeCompanylist !== null) {
       this.companyList = JSON.parse(storeCompanylist);
@@ -102,8 +102,6 @@ export class AppComponent {
   }
 
   public printPdf(company: Company) {
-    const doc = new jsPDF();
-    doc.text('Hello', 20, 20);
-    doc.save('table.pdf');
+    this.letterService.createPdf(company, this.sender);
   }
 }
