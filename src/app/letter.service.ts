@@ -24,6 +24,9 @@ export class LetterService {
       unit: 'mm'
     });
     let txt = '';
+    if (company.contractNumber) {
+      txt += 'Betreff: ' + company.contractNumber + '\n\n';
+    }
     doc.setFontSize(14);
 
     doc.text(this.titleText, 20, 100);
@@ -41,6 +44,9 @@ export class LetterService {
     const lastChar = txt.substr(txt.length - 2);
     if (lastChar === ',\n') {
       txt = txt.substr(0, txt.length - 2) + '.\n';
+    }
+    if (company.remarks) {
+      txt += '\n\n' + company.remarks + '\n';
     }
 
     // sender
@@ -65,6 +71,11 @@ export class LetterService {
     // doc.text(doc.splitTextToSize(txt, 180), 20, 100);
     doc.save(filenName + '.pdf');
   }
+
+  /**
+   * Return current Date in german format
+   * @returns {string}
+   */
   public getDate(): string {
     const today = new Date();
     let dd: string = today.getDate().toString();
