@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Company } from '../models/Company';
-import { Textblock } from '../models/Textblock';
 import { LetterService } from './letter.service';
+import { Letter } from '../models/Letter';
+import {Templates} from '../models/Templates';
 
 @Component({
   selector: 'app-root',
@@ -14,27 +15,9 @@ export class AppComponent {
    * @type {string}
    */
   sender = '';
-  /**
-   * Available Textblocks for the first letter
-   * @type {({name: string; content: string} | {name: string; content: string; selected: boolean})[]}
-   */
-  textblocks1: Array<Textblock> = [
-    { name : 'text1', content: 'vollumfänglich sämtliche über mich bei Ihnen gespeicherten Daten in Kopie zu überlassen,', selected: true },
-    { name : 'text2', content: 'den Zweck der Verarbeitung dieser Daten zu nennen,',
-      selected : true },
-    { name : 'text3', content: 'die Empfänger oder Kategorien von Empfängern, die meine Daten bereits erhalten haben oder' +
-              ' zukünftig noch erhalten werden zu nennen,',
-      selected : true },
-    { name : 'text4', content: 'die geplante Dauer der Speicherung dieser Daten zu nennen,',
-      selected : true },
-    { name : 'text5', content: 'sofern die Daten nicht bei mir erhoben werden, mir alle verfügbaren Daten über die Herkunft der' +
-                               ' Daten mitzuteilen,',
-      selected : true },
-    { name : 'text6', content: 'mir darzulegen, ob eine automatisierte Entscheidungsfindung einschließlich Profiling gmäß Art. 22 DSGVO ' +
-              'besteht und mir in diesem Fall aussagekräftige Informationen über die involvierte Logik und die angestrebten' +
-              ' Auswirkungen einer derartigen Verarbeitung für meine Person zukommen zu lassen,',
-      selected : true }
-  ];
+
+  letter: Letter;
+
   /**
    * List of currently selected companies
    * @type {{companyName: string}[]}
@@ -58,14 +41,25 @@ export class AppComponent {
    * saves company to localstorage
    */
   public saveCompany() {
-    // clone entry the stupid js way
-    const newCompany: Company = JSON.parse(JSON.stringify(this.currentCompany));
-    newCompany.textBlocks = this.textblocks1;
-    this.companyList.push(JSON.parse(JSON.stringify(newCompany)));
+    let existingCompany = null;
+    for (const oneCompany of this.companyList) {
+      if (oneCompany.companyName === this.currentCompany.companyName) {
+        existingCompany = oneCompany;
+      }
+    }
+    if (existingCompany !== null) {
+      existingCompany.letter.push(JSON.parse(JSON.stringify(this.letter)));
+    } else {
+      // clone entry the stupid js way
+      const newCompany: Company = JSON.parse(JSON.stringify(this.currentCompany));
+      newCompany.letter.push(this.letter);
+      this.companyList.push(JSON.parse(JSON.stringify(newCompany)));
+    }
     this.saveCompanyList();
+    // TODO: return to main page
     // reset values
     this.currentCompany = new Company();
-    for (const textBlock of this.textblocks1) {
+    for (const textBlock of this.letter.textblocks) {
       textBlock.selected = true;
     }
   }
@@ -76,8 +70,61 @@ export class AppComponent {
   public saveSender() {
     window.localStorage.setItem('sender', this.sender);
   }
+
+  /**
+   * generates pdf
+   * @param {Company} company
+   */
+  public printPdf(company: Company) {
+    this.letterService.createPdf(company, this.letter, this.sender);
+    company.printed = this.getDate();
+    this.saveCompanyList();
+  }
+
+  /**
+   * saves company list in localstorage
+   */
+  public saveCompanyList() {
+    window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
+  }
+
+  public createLetter(company) {
+    this.currentCompany = company;
+    this.letter = new Templates().Templates[0];
+
+  }
+  /**
+   * removes company from company list and edits it
+   * @param company
+   */
+  public editCompany(company, letter) {
+    const companyLetters = [];
+    // filter out current letter
+    for (const singleLetter of company.letter) {
+      if (singleLetter !== letter) {
+        companyLetters.push(singleLetter);
+      }
+    }
+    company.letter = companyLetters;
+    this.currentCompany = company;
+    this.letter = letter;
+    // if no letter remains
+
+    if (company.letter.length === 0) {
+      const companies = [];
+      for (const oneCompany of this.companyList) {
+        if (oneCompany.companyName !== company.companyName) {
+          companies.push(oneCompany);
+        }
+      }
+      this.companyList = companies;
+      this.saveCompanyList();
+    }
+  }
+
   /**
    * constructor, called when instantiated
+   * load company list and sender information
    */
   constructor(public letterService: LetterService) {
     const storeCompanylist = window.localStorage.getItem('companyList');
@@ -88,28 +135,10 @@ export class AppComponent {
     if (storeSender !== null) {
       this.sender = storeSender;
     }
+    const templates = new Templates();
+    this.letter = templates.Templates[0];
+    console.log(this.letter);
   }
 
-  public printPdf(company: Company) {
-    this.letterService.createPdf(company, this.sender);
-    company.printed = this.getDate();
-    this.saveCompanyList();
-  }
 
-  public saveCompanyList() {
-    window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
-  }
-
-  public editCompany(company) {
-    const companies = [];
-    for (const oneCompany of this.companyList) {
-      if (oneCompany !== company) {
-        companies.push(oneCompany);
-      }
-    }
-    this.currentCompany = company;
-    this.textblocks1 = company.textBlocks;
-    this.companyList = companies;
-    this.saveCompanyList();
-  }
 }

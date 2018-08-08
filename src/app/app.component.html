@@ -16,11 +16,18 @@
 
         <ul class="list-group list-group-flush" *ngFor="let company of companyList">
           <li class="list-group-item">
-            {{company.companyName}}
-            <span class="badge badge-danger float-right ml-1" (click)="editCompany(company)">Edit</span>
+            <div>
+              <h5>{{company.companyName}} <span class="badge badge-success float-right ml-1" (click)="createLetter(company)">Neu</span></h5>
 
-            <span *ngIf='company.printed === undefined' class="badge badge-secondary float-right" (click)="printPdf(company)">PDF</span>
-            <span *ngIf='company.printed !== undefined' class="badge badge-success float-right" (click)="printPdf(company)">PDF</span>
+
+            </div>
+            <div class="clear" style="clear: both;"></div>
+            <div *ngFor="let letter of company.letter">
+              {{letter.name}}
+              <span class="badge badge-danger float-right ml-1" (click)="editCompany(company, letter)">Edit</span>
+              <span *ngIf='company.printed === undefined' class="badge badge-secondary float-right" (click)="printPdf(company, letter)">PDF</span>
+              <span *ngIf='company.printed !== undefined' class="badge badge-success float-right" (click)="printPdf(company, letter)">PDF</span>
+            </div>
           </li>
         </ul>
 
@@ -105,7 +112,7 @@
 
 
 
-        <div class="custom-control custom-checkbox" *ngFor="let textblock of textblocks1">
+        <div class="custom-control custom-checkbox" *ngFor="let textblock of letter.textblocks">
           <input [(ngModel)]="textblock.selected" name="{{textblock.name}}" type="checkbox" class="custom-control-input" id="{{textblock.name}}">
           <label class="custom-control-label" for="{{textblock.name}}">{{textblock.content}}</label>
         </div>

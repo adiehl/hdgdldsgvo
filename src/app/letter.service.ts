@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Company } from '../models/Company';
+import { Letter } from '../models/Letter';
 
 const jsPDF = require('jspdf');
 
@@ -18,7 +19,7 @@ export class LetterService {
     '\n' +
     'Mit freundlichen Grüßen,';
 
-  public createPdf(company: Company, sender) {
+  public createPdf(company: Company, letter: Letter, sender) {
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm'
@@ -34,7 +35,7 @@ export class LetterService {
     doc.setFontSize(12);
     doc.text(this.getDate(), 170, 110);
     txt += this.introText;
-    for (const textBlock of company.textBlocks) {
+    for (const textBlock of letter.textblocks) {
       if (textBlock.selected === true) {
         txt += ' - ' + textBlock.content + '\n';
       }

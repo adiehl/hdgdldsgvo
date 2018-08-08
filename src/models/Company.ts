@@ -1,4 +1,4 @@
-import {Textblock} from './Textblock';
+import {Letter} from './Letter';
 
 export class Company {
   companyName: string;
@@ -8,6 +8,6 @@ export class Company {
   companyCountry?: string;
   contractNumber?: string;
   remarks?: string;
-  textBlocks?: Textblock[];
+  letter: Letter[] = [];
   printed?: string;
 }
