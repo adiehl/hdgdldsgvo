@@ -39,7 +39,7 @@ export class Templates {
       name: 'DSGVO-Beanstandung',
       titleText : 'Beanstandung Ihrer Antwort auf das DSGVO-Auskunftsersuchen',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
-      'Ihre Antwort auf Ihre Antwort war fehlerhaft. Bitte korrigieren Sie Ihre Angaben umgehend,' +
+      'Ihre Antwort auf meine Anfrage war fehlerhaft. Bitte korrigieren Sie Ihre Angaben umgehend,' +
       'Ansonsten sehe ich mich gezwungen Sie der zuständigen Aufsichtsbehörde zu melden sowie die' +
       'Ansprüche gerichtlich durchzusetzen.\n' +
       '\n' +
@@ -49,13 +49,22 @@ export class Templates {
       '\n' +
       'Mit freundlichen Grüßen,',
       textblocks : [
-        { name : 'text1', content: 'Es fehlten Kontodaten.',
+        { name : 'return1', content: 'Es fehlten Konto- bzw. Abrechnungsdaten.',
           selected: true },
-        { name : 'text2', content: 'Es fehlten Daten über mein Kaufverhalten.',
+        { name : 'return2', content: 'Es fehlten Daten über mein Kaufverhalten.',
           selected : true },
-        { name : 'text3', content: 'die Empfänger oder Kategorien von Empfängern, die meine Daten bereits erhalten haben oder' +
-          ' zukünftig noch erhalten werden zu nennen,',
-          selected : true }
+        { name : 'return3', content: 'Es fehlten Nutzungsprotokolle.',
+          selected : true },
+        { name : 'return4', content: 'Es fehlten Zutrittsprotokolle.',
+          selected : true },
+        { name : 'return5', content: 'Es fehlten Standortdaten und -verläufe.',
+          selected : true },
+        { name : 'return6', content: 'Es fehlten Datenbankeinträge.',
+          selected : true },
+        { name : 'return7', content: 'Es fehlten technische Daten.',
+          selected : true },
+        { name : 'return8', content: 'Es fehlten interne Notizen und Aufzeichnungen.',
+          selected : true },
       ]
     }
   ];

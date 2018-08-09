@@ -3,6 +3,7 @@ import { Company } from '../models/Company';
 import { LetterService } from './letter.service';
 import { Letter } from '../models/Letter';
 import {Templates} from '../models/Templates';
+import {InfoDialogComponent} from './info-dialog/info-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -72,8 +73,6 @@ export class AppComponent {
       this.companyList.push(JSON.parse(JSON.stringify(newCompany)));
     }
     this.saveCompanyList();
-    // TODO: return to main page
-    // reset values
     this.currentCompany = new Company();
     for (const textBlock of this.letter.textblocks) {
       textBlock.selected = true;
@@ -104,6 +103,10 @@ export class AppComponent {
     window.localStorage.setItem('companyList', JSON.stringify(this.companyList));
   }
 
+  /**
+   * creates a new letter for the selected company
+   * @param company
+   */
   public createLetter(company) {
     this.currentCompany = company;
     this.letter = new Templates().Templates[0];
@@ -159,6 +162,10 @@ export class AppComponent {
     this.letter = templates.Templates[0];
     this.templateName = this.letter.name;
     console.log(this.letter);
+  }
+
+  public openInfoDialog() {
+    alert('Todo');
   }
 
 

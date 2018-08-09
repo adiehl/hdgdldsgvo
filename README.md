@@ -1,31 +1,25 @@
-# Hdgdldsgvo
+# HDGDL DSGVO
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+Dieses Projekt soll einen DSGVO-Generator bereitstellen. Jeder soll die Möglichkeit haben, an beliebig viele Firmen, Insitutionen,
+etc. Anfragen nach Artikel 15 der DSGVO zu stellen.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Diese Anwendung stellt Vorlagen und Textblöcke bereit, um diese Anfragen zu generieren.
 
-## Code scaffolding
+# Selbst hosten
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Wenn du diese Anwendung selbst hosten willst, brauchst du Angular und NodeJS. Klone dieses Projekt und führe `ng serve` im 
+Projektverzeichnis aus.
 
-## Build
+# Ausprobieren
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Du kannst den DSGVO-Generator auch direkt ausprobieren: [https://adiehl.github.io/dsgvo](https://adiehl.github.io/dsgvo).
 
-## Running unit tests
+# Datenschutz
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ich nehme Datenschutz ernst. Daher speichere ich absolut keine Daten in dieser Anwendung, außer in deinem eigenen Browser, und
+das per Localstorage. Wenn du z. B. in Chrome F12 drückst und im Tab Application schaust, siehst du welche Daten. Du kannst sie
+auch löschen.
 
-## Running end-to-end tests
+# Lizenz
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Diese Software unterliegt der GPL.
