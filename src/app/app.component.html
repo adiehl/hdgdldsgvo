@@ -8,10 +8,16 @@
     <!-- Firmenliste -->
 
     <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        Vorlage
+      </h4>
+      <select class="form-control mb-3" [(ngModel)]="templateName" (change)="changeTemplate()">
+        <option *ngFor="let templateName of templateNames" value="{{templateName}}">{{templateName}}</option>
+      </select>
       <ng-container *ngIf="companyList.length">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           Firmenliste
-          <span class="badge badge-secondary badge-pill">{{companyList.length}}</span>
+          <span class="badge badge-success badge-pill">{{companyList.length}}</span>
         </h4>
 
         <ul class="list-group list-group-flush" *ngFor="let company of companyList">
@@ -25,8 +31,8 @@
             <div *ngFor="let letter of company.letter">
               {{letter.name}}
               <span class="badge badge-danger float-right ml-1" (click)="editCompany(company, letter)">Edit</span>
-              <span *ngIf='company.printed === undefined' class="badge badge-secondary float-right" (click)="printPdf(company, letter)">PDF</span>
-              <span *ngIf='company.printed !== undefined' class="badge badge-success float-right" (click)="printPdf(company, letter)">PDF</span>
+              <span *ngIf='letter.printed === undefined' class="badge badge-secondary float-right" (click)="printPdf(company, letter)">PDF</span>
+              <span *ngIf='letter.printed !== undefined' class="badge badge-success float-right" (click)="printPdf(company, letter)">PDF</span>
             </div>
           </li>
         </ul>
@@ -105,11 +111,10 @@
         </div>
 
         <hr class="mb-4">
-        <h4 class="mb-3">Datenschutzrechtliche Selbstauskunft</h4>
+        <h4 class="mb-3">{{letter.titleText}}</h4>
 
-        <p>(Vertragsnummer)</p>
         <div class="float-right">{{getDate()}}</div>
-
+        <p *ngIf="currentCompany.contractNumber">Betreff: {{currentCompany.contractNumber}}</p>
 
 
         <div class="custom-control custom-checkbox" *ngFor="let textblock of letter.textblocks">

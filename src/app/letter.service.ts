@@ -7,18 +7,6 @@ const jsPDF = require('jspdf');
 @Injectable()
 export class LetterService {
 
-  public titleText = 'Datenschutzrechliche Selbstauskunft gemäß DSGVO';
-  public introText = 'Sehr geehrte Damen und Herren,\n\n' +
-    'nach Art. 15 DSGVO habe ich das Recht, von Ihnen eine Bestätigung darüber zu verlangen' +
-    ', ob sie personenbezogene Daten über mich gespeichert haben. Sofern dies der Fall ist, so habe ich ein' +
-    ' Recht auf Auskunft über diese Daten.\n' +
-    '\n' +
-    'Ich darf Sie in diesem Fall bitten, mir\n';
-  public endClause = '\n' +
-    '\n' +
-    '\n' +
-    'Mit freundlichen Grüßen,';
-
   public createPdf(company: Company, letter: Letter, sender) {
     const doc = new jsPDF({
       orientation: 'portrait',
@@ -30,11 +18,11 @@ export class LetterService {
     }
     doc.setFontSize(14);
 
-    doc.text(this.titleText, 20, 100);
+    doc.text(letter.titleText, 20, 100);
 
     doc.setFontSize(12);
     doc.text(this.getDate(), 170, 110);
-    txt += this.introText;
+    txt += letter.introText;
     for (const textBlock of letter.textblocks) {
       if (textBlock.selected === true) {
         txt += ' - ' + textBlock.content + '\n';
@@ -55,7 +43,7 @@ export class LetterService {
     // split sender
     const senderLines = sender.split('\n');
     const senderName = senderLines[0];
-    txt += this.endClause + '\n\n\n';
+    txt += letter.endClause + '\n\n\n';
     txt += senderName;
     doc.setLineWidth(180);
     doc.setFontSize(12);

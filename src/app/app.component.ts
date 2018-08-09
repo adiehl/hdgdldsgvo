@@ -15,6 +15,8 @@ export class AppComponent {
    * @type {string}
    */
   sender = '';
+  templateName = '';
+  templateNames: string[] = [];
 
   letter: Letter;
 
@@ -28,6 +30,20 @@ export class AppComponent {
    * @type {{companyName: string}}
    */
   currentCompany: Company = new Company;
+
+  public changeTemplate() {
+    this.letter = this.getTemplate(this.templateName);
+  }
+
+  public getTemplate(templateName: string) {
+    const templates = new Templates();
+    for (const template of templates.Templates) {
+      if (template.name === templateName) {
+        return template;
+      }
+    }
+    return null;
+  }
 
   /**
    * Gets current date in german format
@@ -75,9 +91,9 @@ export class AppComponent {
    * generates pdf
    * @param {Company} company
    */
-  public printPdf(company: Company) {
-    this.letterService.createPdf(company, this.letter, this.sender);
-    company.printed = this.getDate();
+  public printPdf(company: Company, letter: Letter) {
+    this.letterService.createPdf(company, letter, this.sender);
+    letter.printed = this.getDate();
     this.saveCompanyList();
   }
 
@@ -91,6 +107,7 @@ export class AppComponent {
   public createLetter(company) {
     this.currentCompany = company;
     this.letter = new Templates().Templates[0];
+    this.templateName = this.letter.name;
 
   }
   /**
@@ -136,7 +153,11 @@ export class AppComponent {
       this.sender = storeSender;
     }
     const templates = new Templates();
+    for (const template of templates.Templates) {
+      this.templateNames.push(template.name);
+    }
     this.letter = templates.Templates[0];
+    this.templateName = this.letter.name;
     console.log(this.letter);
   }
 

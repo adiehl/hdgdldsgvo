@@ -34,6 +34,29 @@ export class Templates {
           ' Auswirkungen einer derartigen Verarbeitung für meine Person zukommen zu lassen,',
           selected : true }
       ]
+    },
+    {
+      name: 'DSGVO-Beanstandung',
+      titleText : 'Beanstandung Ihrer Antwort auf das DSGVO-Auskunftsersuchen',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+      'Ihre Antwort auf Ihre Antwort war fehlerhaft. Bitte korrigieren Sie Ihre Angaben umgehend,' +
+      'Ansonsten sehe ich mich gezwungen Sie der zuständigen Aufsichtsbehörde zu melden sowie die' +
+      'Ansprüche gerichtlich durchzusetzen.\n' +
+      '\n' +
+      'Fehlerhaft oder unvollständig waren insbesondere folgende Angaben:\n',
+      endClause : '\n' +
+      '\n' +
+      '\n' +
+      'Mit freundlichen Grüßen,',
+      textblocks : [
+        { name : 'text1', content: 'Es fehlten Kontodaten.',
+          selected: true },
+        { name : 'text2', content: 'Es fehlten Daten über mein Kaufverhalten.',
+          selected : true },
+        { name : 'text3', content: 'die Empfänger oder Kategorien von Empfängern, die meine Daten bereits erhalten haben oder' +
+          ' zukünftig noch erhalten werden zu nennen,',
+          selected : true }
+      ]
     }
   ];
 }

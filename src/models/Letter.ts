@@ -6,4 +6,5 @@ export class Letter {
   name: string;
   endClause: string;
   textblocks: Textblock[];
+  printed?: string;
 }
