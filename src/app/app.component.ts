@@ -3,7 +3,6 @@ import { Company } from '../models/Company';
 import { LetterService } from './letter.service';
 import { Letter } from '../models/Letter';
 import {Templates} from '../models/Templates';
-import {InfoDialogComponent} from './info-dialog/info-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -164,9 +163,6 @@ export class AppComponent {
     console.log(this.letter);
   }
 
-  public openInfoDialog() {
-    alert('Todo');
-  }
 
 
 }

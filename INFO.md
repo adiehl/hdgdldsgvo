@@ -5,6 +5,12 @@ auch ohne Garantie. Die Verwendung erfolgt auf eigene Gefahr.
 
 Bisher haben sie für mich funktioniert. Wenn du Jurist bist und dir fallen Bessere ein, schreib' mir.
 
+# Datenschutz
+
+Ich nehme Datenschutz ernst. Daher speichere ich absolut keine Daten in dieser Anwendung, außer in deinem eigenen Browser, 
+und das per Localstorage. Wenn du z. B. in Chrome F12 drückst und im Tab Application schaust, siehst du welche Daten. 
+Du kannst sie auch löschen.
+
 # Benutzung des Programms
 
 Du legst eine Firma an. Dann wählst du die passende Vorlage, normalerweise erst das erste Anschreiben, dann ggf. Beanstandung, usw.
