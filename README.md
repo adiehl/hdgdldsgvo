@@ -23,3 +23,8 @@ auch löschen.
 # Lizenz
 
 Diese Software unterliegt der [LICENSE.md](GPL), ist also freie Software.
+
+# Keine Garantie
+
+Weder für das Funktionieren der Anwendung noch für die korrektheit der Texte wird Garantie oder Haftung übernommen. 
+Benutzung auf eigene Gefahr.
