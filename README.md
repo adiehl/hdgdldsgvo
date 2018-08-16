@@ -22,4 +22,4 @@ auch löschen.
 
 # Lizenz
 
-Diese Software unterliegt der GPL.
+Diese Software unterliegt der [LICENSE.md](GPL), ist also freie Software.
