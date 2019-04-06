@@ -44,10 +44,10 @@ export class Templates {
         { name : 'text6', content: 'wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren' +
               ' Informationen über die Herkunft der Daten (lit. g)',
           selected : true },
-        { name : 'text7', content: 'falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich ' +
-              'Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und - sofern gegeben - aussagekräftige Informationen über die ' +
-              'involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung ' +
-              'meine Person. (lit. h)',
+        { name : 'text7', content: 'falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung ' +
+              'einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und - sofern gegeben - aussagekräftige ' +
+              'Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen ' +
+              'einer derartigen Verarbeitung meine Person. (lit. h)',
           selected : true },
       ]
     },
