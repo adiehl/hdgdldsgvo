@@ -6,33 +6,49 @@ export class Templates {
       name: 'DSGVO-Auskunft',
       titleText : 'Datenschutzrechliche Selbstauskunft gemäß DSGVO',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
-      'nach Art. 15 DSGVO habe ich das Recht, von Ihnen eine Bestätigung darüber zu verlangen' +
-      ', ob sie personenbezogene Daten über mich gespeichert haben. Sofern dies der Fall ist, so habe ich ein' +
-      ' Recht auf Auskunft über diese Daten.\n' +
+      'hiermit mache ich mein Recht aus Art. 15 Abs. 1 DSGVO geltend. Hierfür bitte ich um Bestätigung, ' +
+      'ob mich betreffende personenbezogene Daten von Ihnen verarbeitet werden. (vgl. Art. 4 Nr. 1 und 2 ' +
+      'DSGVO). Sofern dies der Fall ist, beantrage ich weiterhin die Erteilung einer Auskunft.\n' +
       '\n' +
-      'Ich darf Sie in diesem Fall bitten, mir\n',
+      'Bitte stellen Sie sicher, dass die Auskunft insbesondere folgende Informationen enthält:\n',
       endClause : '\n' +
-      '\n' +
-      '\n' +
+          'Sollten Sie meine personenbezogenen Daten an ein Drittland oder an eine internationale Organisation ' +
+          'übermittelt haben, bitte ich um Unterrichtung über geeignete Garantien i. S. d. Art. 46 DSGVO im ' +
+          'Zusammenhang mit der Übermittlung.\n' +
+          'Ebenfalls eingeschlossen von meiner Anfrage ist der Antrag auf Erhalt einer vollständigen Kopie meiner ' +
+          'Daten, die Gegenstand der Verarbeitung sind (vgl. Art. 15 Abs. 1 S. 1 DSGVO). \n' +
+          'Ich bitte Sie, mir die betreffenden personenbezogenen Daten, die ich Ihnen zur Verfügung gestellt habe, ' +
+          'im Sinne des Art. 20 Abs. 1 DSGVO in einem strukturierten, gängigen und maschinenlesbaren Format zu übermitteln.\n' +
+          'Die Auskunft ist nach Art. 12 Abs. 3 DSGVO unverzüglich, in jedem Fall aber innerhalb eines Monats nach Eingang ' +
+          'der Anfrage zu erteilen. Sie hat nach Art. 15 Abs. 3 DSGVO kostenlos zu erfolgen. \n' +
+          'Sollten Sie meiner Anfrage nicht innerhalb der genannten Frist nachkommen, behalte ich mir vor rechtliche Schritte ' +
+          'gegen Sie einzuleiten und Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen ' +
+          '(vgl. Art. 77 Abs. 1 DSGVO).\n' +
+          '\n' +
+          '\n' +
+          '\n' +
       'Mit freundlichen Grüßen,',
       textblocks : [
-        { name : 'text1', content: 'vollumfänglich sämtliche über mich bei Ihnen gespeicherten Daten in Kopie zu überlassen,',
+        { name : 'text1', content: 'vollständige Auskunft über personenbezogene Daten, die verarbeitet und gespeichert werden',
           selected: true },
-        { name : 'text2', content: 'den Zweck der Verarbeitung dieser Daten zu nennen,',
+        { name : 'text2', content: 'der Zweck der Verarbeitung der Daten (lit. a)',
           selected : true },
-        { name : 'text3', content: 'die Empfänger oder Kategorien von Empfängern, die meine Daten bereits erhalten haben oder' +
-          ' zukünftig noch erhalten werden zu nennen,',
+        { name : 'text3', content: 'die Kategorien personenbezogener Daten, die verarbeitet werden (lit. b)',
           selected : true },
-        { name : 'text4', content: 'die geplante Dauer der Speicherung dieser Daten zu nennen,',
+        { name : 'text4', content: 'die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen' +
+              ' Daten offengelegt worden sind oder noch offengelegt werden (lit. c)',
           selected : true },
-        { name : 'text5', content: 'sofern die Daten nicht bei mir erhoben werden, mir alle verfügbaren Daten über die Herkunft der' +
-          ' Daten mitzuteilen,',
+        { name : 'text5', content: 'die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder,' +
+              ' falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer (lit. d)',
           selected : true },
-        { name : 'text6', content: 'mir darzulegen, ob eine automatisierte Entscheidungsfindung einschließlich Profiling gmäß ' +
-          'Art. 22 DSGVO ' +
-          'besteht und mir in diesem Fall aussagekräftige Informationen über die involvierte Logik und die angestrebten' +
-          ' Auswirkungen einer derartigen Verarbeitung für meine Person zukommen zu lassen,',
-          selected : true }
+        { name : 'text6', content: 'wenn die personenbezogenen Daten nicht bei mir erhoben wurden, alle verfügbaren' +
+              ' Informationen über die Herkunft der Daten (lit. g)',
+          selected : true },
+        { name : 'text7', content: 'falls zutreffend, das Bestehen einer automatisierten Entscheidungsfindung einschließlich ' +
+              'Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und - sofern gegeben - aussagekräftige Informationen über die ' +
+              'involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen einer derartigen Verarbeitung ' +
+              'meine Person. (lit. h)',
+          selected : true },
       ]
     },
     {
