@@ -56,7 +56,19 @@ export class LetterService {
       (company.companyCity ? company.companyCity : '') + '\n' +
       (company.companyCountry ? company.companyCountry : '');
     doc.text(recipient, 20, 60);
-    doc.text(doc.splitTextToSize(txt, 170), 20, 120);
+
+    // split by lines
+    const lines = doc.splitTextToSize(txt, 170);
+    let y = 120;
+    for (const line of lines) {
+      doc.text(line, 20, y);
+      y += 5;
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+
+    }
     const filenName = company.companyName.replace(/[^A-Za-z0-9]/, '_');
     // doc.text(doc.splitTextToSize(txt, 180), 20, 100);
     doc.save(filenName + '.pdf');
