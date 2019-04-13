@@ -82,6 +82,23 @@ export class Templates {
         { name : 'return8', content: 'Es fehlten interne Notizen und Aufzeichnungen.',
           selected : true },
       ]
+    },
+    {
+      name: 'Unber. Anfrage Ausweiskopie',
+      titleText : 'Unberechtigt angeforderte Ausweiskopie',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'kürzlich haben Sie weitere Informationen zur eindeutigen Identifikation meiner Person angefragt. Ihnen liegen bereits ' +
+          'Informationen zu meiner Identität vor. Daher fordere ich Sie auf, unverzüglich das von mir beantragte Auskunftsersuchen, ' +
+          'sowie dem ggf. gestellten Antrag auf Herausgabe einer Datenkopie nachzukommen. Sollte dies aufgrund der vorhandenen ' +
+          'Informationen zu meiner Person nicht möglich sein, bitte ich um weitergehende Begründung, weshalb die von Ihnen ' +
+          'angefragten Identifikationsmittel für eine Bearbeitung meiner Anfrage notwendig sind (vgl. ErwGr 64 DSGVO). ' +
+          'Sollten Sie Ihre Einschätzung auf Grundlage einer Risikoprognose treffen, bitte ich weiterhin um Erläuterung der ' +
+          'verwendeten Kriterien für eine Risikoeinschätzung.',
+      endClause : '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : []
     }
   ];
 }

@@ -118,14 +118,17 @@
         <hr class="mb-4">
         <h4 class="mb-3">{{letter.titleText}}</h4>
 
-        <div class="float-right">{{getDate()}}</div>
+        <div class="float-right">{{getDate()}}</div><br />
         <p *ngIf="currentCompany.contractNumber">Betreff: {{currentCompany.contractNumber}}</p>
 
+        <p>{{letter.introText}}</p>
 
         <div class="custom-control custom-checkbox" *ngFor="let textblock of letter.textblocks">
           <input [(ngModel)]="textblock.selected" name="{{textblock.name}}" type="checkbox" class="custom-control-input" id="{{textblock.name}}">
           <label class="custom-control-label" for="{{textblock.name}}">{{textblock.content}}</label>
         </div>
+
+        <p>{{letter.endClause}}</p>
 
         <hr class="mb-4">
 
