@@ -99,6 +99,21 @@ export class Templates {
           '\n' +
           'Mit freundlichen Grüßen,',
       textblocks : []
+    },
+    {
+      name: 'Verweis auf Kundenportal',
+      titleText : 'Verweis auf Entnahmemöglichkeit aus dem Kundenportal',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'hiermit nehme ich Bezug auf Ihren Verweis auf die Verfügbarkeit der Daten im Kundenportal. Ich möchte Sie freundlich ' +
+          'darauf hinweisen, dass dies gegen die Anforderungen, die Art. 15 Abs. 1 DSGVO an die Beantwortung eines Auskunftsersuchens ' +
+          'gegen Art. 12 Abs. 2 S. 1 DSGVO verstößt. Hiernach ist dem Betroffenen die Wahrnehmung seiner Rechte zu erleichtern. Durch ' +
+          'die Notwendigkeit des eigenhändigen Zusammenstellens der gewünschten Informationen ist dies vorliegend nicht gewährleistet. ' +
+          'Daher bitte ich Sie erneut, umgehend dem von mir beantragten Auskunftsersuchen in datenschutzkonformer Weise nachzukommen.',
+      endClause : '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : []
     }
   ];
 }
