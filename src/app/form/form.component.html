@@ -1,0 +1,80 @@
+  <h4 class="mb-3">Firma</h4>
+  <form class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="companyName">Firmenname</label>
+      <input [(ngModel)]="currentCompany.companyName" name="companyName" type="text" class="form-control" id="companyName" placeholder="" value="" required>
+      <div class="invalid-feedback">
+        Firmenname muss angegeben werden
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="companyAddress">Straße / Postfach</label>
+      <input [(ngModel)]="currentCompany.companyAddress" name="companyAddress"  type="text" class="form-control" id="companyAddress" placeholder="" value="" required>
+      <div class="invalid-feedback">
+        Anchrift erforderlich
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label for="companyZip">PLZ</label>
+        <input [(ngModel)]="currentCompany.companyZip" name="companyZip"  type="text" class="form-control" id="companyZip" placeholder="" value="" required>
+        <div class="invalid-feedback">
+          PLZ erforderlich
+        </div>
+      </div>
+      <div class="col-md-9 mb-3">
+        <label for="companyCity">Ort</label>
+        <input [(ngModel)]="currentCompany.companyCity" name="companyCity"  type="text" class="form-control" id="companyCity" placeholder="" value="" required>
+        <div class="invalid-feedback">
+          Ort erforderlich
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="companyCountry">Land (nur bei Ausland)</label>
+      <input [(ngModel)]="currentCompany.companyCountry" name="companyCountry"  type="text" class="form-control" id="companyCountry" placeholder="" value="">
+    </div>
+    <div class="mb-3">
+      <label for="contractNumber">Vertragsnummer, Geschäftszeichen, Kennzeichen (Optional)</label>
+      <input [(ngModel)]="currentCompany.contractNumber" name="contractNumber"  type="text" class="form-control" id="contractNumber" placeholder="Telefonnummer, Vertragsnummer, Aktenzeichen, etc." value="">
+
+    </div>
+
+
+    <div class="mb-3">
+      <label for="remarks">Weitere Bemerkungen (optional)</label>
+      <textarea [(ngModel)]="currentCompany.remarks" name="remarks"  class="form-control" id="remarks" placeholder="z. B. bezug auf ein vorheriges Schreiben, präzisierung des Auskunftsersuchens"></textarea>
+
+    </div>
+
+    <hr class="mb-4">
+    <h4 class="mb-3">{{letter.titleText}}</h4>
+    <span [hidden]="letter.rawText">
+      <div class="float-right">{{getDate()}}</div><br />
+      <p *ngIf="currentCompany.contractNumber">Betreff: {{currentCompany.contractNumber}}</p>
+
+      <p>{{letter.introText}}</p>
+
+      <div class="custom-control custom-checkbox" *ngFor="let textblock of letter.textblocks">
+        <input [(ngModel)]="textblock.selected" name="{{textblock.name}}" type="checkbox" class="custom-control-input" id="{{textblock.name}}">
+        <label class="custom-control-label" for="{{textblock.name}}">{{textblock.content}}</label>
+      </div>
+
+      <p>{{letter.endClause}}</p>
+    </span>
+    <span [hidden]="!letter.rawText">
+      <textarea [(ngModel)]="letter.rawText" name="rawText"  class="form-control" id="rawText" style="height: 25em;"></textarea>
+    </span>
+
+    <hr class="mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm"><button (click)="saveCompany()" class="btn btn-primary btn-lg btn-block" type="submit">Eintrag speichern</button></div>
+        <div class="col-sm"><button (click)="editText()" class="btn btn-secondary btn-lg btn-block" type="submit">Text bearbeiten</button></div>
+      </div>
+    </div>
+
+  </form>

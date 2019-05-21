@@ -7,21 +7,70 @@ const jsPDF = require('jspdf');
 @Injectable()
 export class LetterService {
 
-  public createPdf(company: Company, letter: Letter, sender) {
+  public createPdf(company: Company, letter: Letter, sender, txt = null) {
+
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm'
     });
+
+    // title
+    doc.setFontSize(14);
+    doc.text(letter.titleText, 20, 100);
+    doc.setFontSize(12);
+
+    // date
+    doc.text(this.getDate(), 170, 110);
+
+    // sender
+    doc.text(doc.splitTextToSize(sender, 40), 140, 20);
+
+    doc.setLineWidth(180);
+    doc.setFontSize(12);
+
+    // recipient
+    const recipient = company.companyName + '\n' +
+        (company.companyAddress ? company.companyAddress : '') + '\n' +
+        (company.companyZip ? company.companyZip + ' ' : '') +
+        (company.companyCity ? company.companyCity : '') + '\n' +
+        (company.companyCountry ? company.companyCountry : '');
+    doc.text(recipient, 20, 60);
+
+    if (!txt) {
+      if (letter.rawText) {
+        txt = letter.rawText;
+      } else {
+        txt = this.generateText(company, letter, sender);
+      }
+
+    }
+
+    // split by lines
+    const lines = doc.splitTextToSize(txt, 170);
+    let y = 120;
+    for (const line of lines) {
+      doc.text(line, 20, y);
+      y += 5;
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+
+    }
+
+    const fileName = company.companyName.replace(/[^A-Za-z0-9]/, '_');
+    // doc.text(doc.splitTextToSize(txt, 180), 20, 100);
+    doc.save(fileName + '.pdf');
+  }
+
+  public generateText(company, letter, sender): string {
+    const senderName = this.getFirstLine(sender);
+    // text generation
     let txt = '';
+
     if (company.contractNumber) {
       txt += 'Betreff: ' + company.contractNumber + '\n\n';
     }
-    doc.setFontSize(14);
-
-    doc.text(letter.titleText, 20, 100);
-
-    doc.setFontSize(12);
-    doc.text(this.getDate(), 170, 110);
     txt += letter.introText;
     for (const textBlock of letter.textblocks) {
       if (textBlock.selected === true) {
@@ -38,40 +87,15 @@ export class LetterService {
       txt += '\n\n' + company.remarks + '\n';
     }
 
-    // sender
-    doc.text(doc.splitTextToSize(sender, 40), 140, 20);
-    // split sender
-    const senderLines = sender.split('\n');
-    const senderName = senderLines[0];
     txt += letter.endClause + '\n\n\n';
     txt += senderName;
-    doc.setLineWidth(180);
-    doc.setFontSize(12);
 
+    return txt;
+  }
 
-    // recipient
-    const recipient = company.companyName + '\n' +
-      (company.companyAddress ? company.companyAddress : '') + '\n' +
-      (company.companyZip ? company.companyZip + ' ' : '') +
-      (company.companyCity ? company.companyCity : '') + '\n' +
-      (company.companyCountry ? company.companyCountry : '');
-    doc.text(recipient, 20, 60);
-
-    // split by lines
-    const lines = doc.splitTextToSize(txt, 170);
-    let y = 120;
-    for (const line of lines) {
-      doc.text(line, 20, y);
-      y += 5;
-      if (y > 270) {
-        doc.addPage();
-        y = 20;
-      }
-
-    }
-    const filenName = company.companyName.replace(/[^A-Za-z0-9]/, '_');
-    // doc.text(doc.splitTextToSize(txt, 180), 20, 100);
-    doc.save(filenName + '.pdf');
+  public getFirstLine(sender: string): string {
+    const senderLines = sender.split('\n');
+    return senderLines[0];
   }
 
   /**

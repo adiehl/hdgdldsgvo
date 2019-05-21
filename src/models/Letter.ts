@@ -7,4 +7,5 @@ export class Letter {
   endClause: string;
   textblocks: Textblock[];
   printed?: string;
+  rawText? = '';
 }
