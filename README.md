@@ -14,6 +14,10 @@ Projektverzeichnis aus.
 
 Du kannst den DSGVO-Generator auch direkt ausprobieren: [https://adiehl.github.io/dsgvo](https://adiehl.github.io/dsgvo).
 
+# Build
+
+`ng build --prod --base-href /dsgvo/`
+
 # Datenschutz
 
 Ich nehme Datenschutz ernst. Daher speichere ich absolut keine Daten in dieser Anwendung, außer in deinem eigenen Browser, und
