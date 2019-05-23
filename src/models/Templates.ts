@@ -114,6 +114,82 @@ export class Templates {
           '\n' +
           'Mit freundlichen Grüßen,',
       textblocks : []
-    }
+    },
+    {
+      name: 'Antrag auf Löschung',
+      titleText : 'Löschung personenbezogener Daten nach Art. 17 DSGVO',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'hiermit mache ich mein Recht auf Löschung gem. Art. 17 Abs. 1 DSGVO geltend. Ich fordere Sie herimit auf, ' +
+          'sämtliche bei Ihnen über mich gespeicherten personenbezogenen Daten unverzüglich und vollumfassend zu löschen.\n' +
+          '\n' +
+          '\n' +
+          'Gründe für die Löschung:\n' +
+          '\n',
+      endClause : '\n' +
+          'Falls eine wirksame Einwilligung erteilt wurde, erfolgt hiermit hilfsweise deren Widerruf. Gleichzeitig widerspreche ich ' +
+          'der Datenverarbeitung nach Art. 21 DSGVO.' +
+          '\n' +
+          'Sollten Sie i. S. v. Art. 17 Abs. 2 DSGVO meine personenbezogenen Daten anderen offengelegt haben, verlange ich, dass Sie ' +
+          'die Empfänger über die Wahrnehmung meiner Rechte auf Löschung aller Links zu den genannten personenbezogenen Daten umfassend ' +
+          'unterrichten.' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : [
+        { name : 'text1', content: 'Die personenbezogenen Daten sind für die Zwecke, für die sie erhoben oder auf sonstige Weise ' +
+              'verarbeitet wurden, nicht mehr notwendig.',
+          selected: true },
+        { name : 'text2', content: 'Ich widerrufe meine Einwilligung, auf die sich die Verarbeitung gem. Art. 6 Abs. 1 lit. a) ' +
+              'oder Art. 9 Abs. 2 lit. a) DSGVO bezieht. Eine anderweitige Rechtsgrundlage für die Verarbeitung besteht nicht.',
+          selected : true },
+        { name : 'text3', content: 'Ich habe bereits gem. Art. 21 Abs. 1 DSGVO aus persönlichen Gründen Widerspruch gegen die ' +
+              'Verarbeitung erhoben und es liegen keine vorrangigen berechtigten Gründe für eine Verarbeitung vor oder ich habe gem. ' +
+              'Art. 21 Abs. 2 DSGVO infolge von Direktwerbung Widerspruch erhoben.',
+          selected : true },
+        { name : 'text4', content: 'Es wurde keine wirksame Einwilligung in die Verarbeitung der Daten erteilt oder die Einwilligung ' +
+              'wurde wirksam widerrufen. Daher war die Verarbeitung der Daten rechtswidrig.',
+          selected : true },
+        { name : 'text5', content: 'Die Löschung der personenbezogenen Daten ist zur Erfüllung einer rechtlichen Verpflichtung nach ' +
+              'dem Unionsrecht) oder dem Recht der Mitgliedstaaten erforderlich, dem Sie als Verantwortlicher unterliegen.',
+          selected : true },
+        { name : 'text6', content: 'Die personenbezogenen Daten wurden in Bezug auf angebotene Dienste der Informationsgesellschaft ' +
+              'gemäß Art. 8 Abs. 1 DSGVO erhoben. Zu diesem Zeitpunkt war ich noch nicht 16 Jahre alt.',
+          selected : true },
+      ]
+    },
+    {
+      name: 'Antrag auf Einschränkung',
+      titleText : 'Einschränkung der Verarbeitung nach Art. 18 DSGVO',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'hiermit mache ich mein Recht auf Einschränkung der Verarbeitung gem. Art. 18 Abs. 1 DSGVO geltend. Die betroffenen Daten ' +
+          'dürfen daher fortan gem. Art. 18 Abs. 2 DSGVO  lediglich mit meiner Einwilligung oder zur Geltendmachung, Ausübung oder ' +
+          'Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen bzw. juristischen Person oder aus ' +
+          'Gründen eines wichtigen öffentlichen Interesses der Union oder eines Mitgliedstaats verarbeitet werden.\n' +
+          '\n' +
+          'Gründe für die Einschränkung der Verarbeitung:' +
+          '\n' +
+          '\n',
+      endClause : '\n' +
+          'Sollten Sie die Einschränkung der Verarbeitung aufheben, bin ich zuvor gem. Art. 18 Abs. 3 DSGVO hierüber in Kenntnis ' +
+          'zu setzen.' +
+          '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : [
+        { name : 'text1', content: 'Ich bestreite die Richtigkeit der personenbezogenen Daten für die Dauer, die es Ihnen ermöglicht, ' +
+              'deren Richtigkeit zu überprüfen\n' +
+              'Dies bezieht sich auf folgende Daten: […]',
+          selected: true },
+        { name : 'text2', content: 'Ich halte die Verarbeitung für unrechtmäßig und Sie haben die Löschung der personenbezogenen Daten ' +
+              'abgelehnt und stattdessen die Einschränkung der Verarbeitung verlangt',
+          selected : true },
+        { name : 'text3', content: 'Sie benötigen die personenbezogenen Daten für Verarbeitungszwecke nicht länger, ich benötige die ' +
+              'Daten allerdings zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen',
+          selected : true },
+        { name : 'text4', content: 'Ich habe bereits gem. Art. 21 Abs. 1 DSGVO Widerspruch gegen die Verarbeitung eingelegt, es steht ' +
+              'jedoch noch nicht fest, ob berechtigte Gründe vorliegen, die die Interessen meiner Person überwiegen',
+          selected : true },
+      ]
+    },
   ];
 }
