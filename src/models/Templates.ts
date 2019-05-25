@@ -6,11 +6,11 @@ export class Templates {
       name: 'DSGVO-Auskunft',
       titleText : 'Datenschutzrechliche Selbstauskunft gemäß DSGVO',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
-      'hiermit mache ich mein Recht aus Art. 15 Abs. 1 DSGVO geltend. Hierfür bitte ich um Bestätigung, ' +
-      'ob mich betreffende personenbezogene Daten von Ihnen verarbeitet werden. (vgl. Art. 4 Nr. 1 und 2 ' +
-      'DSGVO). Sofern dies der Fall ist, beantrage ich weiterhin die Erteilung einer Auskunft.\n' +
-      '\n' +
-      'Bitte stellen Sie sicher, dass die Auskunft insbesondere folgende Informationen enthält:\n',
+          'hiermit mache ich mein Recht aus Art. 15 Abs. 1 DSGVO geltend. Hierfür bitte ich um Bestätigung, ' +
+          'ob mich betreffende personenbezogene Daten von Ihnen verarbeitet werden. (vgl. Art. 4 Nr. 1 und 2 ' +
+          'DSGVO). Sofern dies der Fall ist, beantrage ich weiterhin die Erteilung einer Auskunft.\n' +
+          '\n' +
+          'Bitte stellen Sie sicher, dass die Auskunft insbesondere folgende Informationen enthält:\n',
       endClause : '\n' +
           'Sollten Sie meine personenbezogenen Daten an ein Drittland oder an eine internationale Organisation ' +
           'übermittelt haben, bitte ich um Unterrichtung über geeignete Garantien i. S. d. Art. 46 DSGVO im ' +
@@ -27,7 +27,7 @@ export class Templates {
           '\n' +
           '\n' +
           '\n' +
-      'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen,',
       textblocks : [
         { name : 'text1', content: 'vollständige Auskunft über personenbezogene Daten, die verarbeitet und gespeichert werden',
           selected: true },
@@ -48,6 +48,38 @@ export class Templates {
               'einschließlich Profiling gemäß Art. 22 Abs. 1 und 4 DSGVO und - sofern gegeben - aussagekräftige ' +
               'Informationen über die involvierte Logik sowie die Tragweite und die angestrebten Auswirkungen ' +
               'einer derartigen Verarbeitung meine Person. (lit. h)',
+          selected : true },
+      ]
+    },
+    {
+      name: 'BDSG-Auskunft Sicherheitsbehörden (Beta)',
+      titleText : 'Datenschutzrechliche Selbstauskunft gemäß BDSG',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'hiermit mache ich mein Recht aus §57 Abs. 1 BDSG geltend. Hierfür bitte ich um Bestätigung, ' +
+          'ob mich betreffende personenbezogene Daten von Ihnen verarbeitet werden. (vgl. §46 Nr. 1 und 2 ' +
+          'BDSG). Sofern dies der Fall ist, beantrage ich weiterhin die Erteilung einer Auskunft.\n' +
+          '\n' +
+          'Bitte stellen Sie sicher, dass die Auskunft insbesondere folgende Informationen enthält:\n',
+      endClause : '\n' +
+          'Sollten Sie meine personenbezogenen Daten an ein Drittland oder an eine internationale Organisation ' +
+          'übermittelt haben, bitte ich um Unterrichtung über geeignete Garantien i. S. d. §78-81 BDSG im ' +
+          'Zusammenhang mit der Übermittlung.\n' +
+          '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : [
+        { name : 'text1', content: 'vollständige Auskunft über personenbezogene Daten, die verarbeitet und gespeichert werden (lit. 1)',
+          selected: true },
+        { name : 'text2', content: 'die Informationen über die Herkunft der Daten (lit. 2)',
+          selected : true },
+        { name : 'text3', content: 'der Zweck der Verarbeitung der Daten (lit. 3)',
+          selected : true },
+        { name : 'text4', content: 'die Empfänger oder Kategorien von Empfängern, gegenüber denen die personenbezogenen' +
+              ' Daten offengelegt worden sind oder noch offengelegt werden (lit. 4)',
+          selected : true },
+        { name : 'text5', content: 'die geplante Dauer, für die die personenbezogenen Daten gespeichert werden, oder,' +
+              ' falls dies nicht möglich ist, die Kriterien für die Festlegung dieser Dauer (lit. 5)',
           selected : true },
       ]
     },
