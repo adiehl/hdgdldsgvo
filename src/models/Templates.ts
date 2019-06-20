@@ -87,9 +87,9 @@ export class Templates {
       name: 'DSGVO-Beanstandung',
       titleText : 'Beanstandung Ihrer Antwort auf das DSGVO-Auskunftsersuchen',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
-      'Ihre Antwort auf meine Anfrage war fehlerhaft. Bitte korrigieren Sie Ihre Angaben umgehend,' +
-      'Ansonsten sehe ich mich gezwungen Sie der zuständigen Aufsichtsbehörde zu melden sowie die' +
-      'Ansprüche gerichtlich durchzusetzen.\n' +
+      'Ihre Antwort auf meine Anfrage war fehlerhaft. Bitte korrigieren Sie Ihre Angaben umgehend, ' +
+      'ansonsten werde ich Sie der zuständigen Aufsichtsbehörde melden sowie die ' +
+      'Ansprüche gerichtlich geltend machen.\n' +
       '\n' +
       'Fehlerhaft oder unvollständig waren insbesondere folgende Angaben:\n',
       endClause : '\n' +
