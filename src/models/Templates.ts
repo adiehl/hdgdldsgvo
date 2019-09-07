@@ -16,7 +16,7 @@ export class Templates {
           'übermittelt haben, bitte ich um Unterrichtung über geeignete Garantien i. S. d. Art. 46 DSGVO im ' +
           'Zusammenhang mit der Übermittlung.\n' +
           'Ebenfalls eingeschlossen von meiner Anfrage ist der Antrag auf Erhalt einer vollständigen Kopie meiner ' +
-          'Daten, die Gegenstand der Verarbeitung sind (vgl. Art. 15 Abs. 1 S. 1 DSGVO). \n' +
+          'Daten, die Gegenstand der Verarbeitung sind (vgl. Art. 15 Abs. 3 S. 1 DSGVO). \n' +
           'Ich bitte Sie, mir die betreffenden personenbezogenen Daten, die ich Ihnen zur Verfügung gestellt habe, ' +
           'im Sinne des Art. 20 Abs. 1 DSGVO in einem strukturierten, gängigen und maschinenlesbaren Format zu übermitteln.\n' +
           'Die Auskunft ist nach Art. 12 Abs. 3 DSGVO unverzüglich, in jedem Fall aber innerhalb eines Monats nach Eingang ' +
@@ -50,6 +50,41 @@ export class Templates {
               'einer derartigen Verarbeitung meine Person. (lit. h)',
           selected : true },
       ]
+    },
+    {
+      name: 'Videodaten/Geldautomat',
+      titleText : 'Fehlen von zuordnenbarer Videoüberwachung',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'ich hatte nach Artikel 15 DSGVO eine Auskunft von Ihnen als Verantwortlichem der über mich ' +
+          'gespeicherten Daten angefragt.\n\n' +
+          'Dieser Auskunft sind sie teilweise nachgekommen, haben jedoch die in Verbindung mit den ' +
+          'Abhebevorgängen an Ihren Geldautomaten stehenden Bild- und Videoaufzeichnungen vergessen.\n\n' +
+          'Die von Ihnen angefertigten Videoaufzeichnungen sind durch Ort, Zeit und Abhebevorgang ' +
+          'verbundene personenbezogene Daten im Sinne des Artikel 4 DSGVO sowie § 4 Abs. 4 BDSG.',
+      endClause : '' +
+          '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : []
+    },
+    {
+      name: 'Verweis auf Zahlungsdienstleister',
+      titleText : 'Anfrage an gemeinsam Verantwortliche nach Art. 26 DSGVO',
+      introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'ich hatte Ihnen eine Anfrage auf Auskunft nach Artikel 15 geschickt. In Ihrer Antwort behaupten Sie, ' +
+          'keine Daten über mich gespeichert zu haben.\n\n' +
+          'Beim Vorgang der Kartenzahlung haben Sie Zahlungsdaten an Dritte weitergegeben.\n\n' +
+          'Bitte teilen Sie mir umgehend mit, ob ein Verhältnis gemeinsamer Verantwortlichkeit oder ' +
+          'der Auftragsverarbeitung vorliegt.\n\n' +
+          'In diesen Fällen sind Sie datenschutzrechtlich verpflichtet, meinem Auskunftsersuchen nachzukommen.\n\n' +
+          'Sollte keiner von beiden Fällen vorliegen, bitte ich die Rechtmäßigkeit der Datenübermittlung nachzuweisen.\n\n',
+      endClause : '\n' +
+          '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : []
     },
     {
       name: 'BDSG-Auskunft Sicherheitsbehörden (Beta)',
@@ -192,6 +227,41 @@ export class Templates {
       name: 'Antrag auf Einschränkung',
       titleText : 'Einschränkung der Verarbeitung nach Art. 18 DSGVO',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
+          'hiermit mache ich mein Recht auf Einschränkung der Verarbeitung gem. Art. 18 Abs. 1 DSGVO geltend. Die betroffenen Daten ' +
+          'dürfen daher fortan gem. Art. 18 Abs. 2 DSGVO  lediglich mit meiner Einwilligung oder zur Geltendmachung, Ausübung oder ' +
+          'Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen bzw. juristischen Person oder aus ' +
+          'Gründen eines wichtigen öffentlichen Interesses der Union oder eines Mitgliedstaats verarbeitet werden.\n' +
+          '\n' +
+          'Gründe für die Einschränkung der Verarbeitung:' +
+          '\n' +
+          '\n',
+      endClause : '\n' +
+          'Sollten Sie die Einschränkung der Verarbeitung aufheben, bin ich zuvor gem. Art. 18 Abs. 3 DSGVO hierüber in Kenntnis ' +
+          'zu setzen.' +
+          '\n' +
+          '\n' +
+          '\n' +
+          'Mit freundlichen Grüßen,',
+      textblocks : [
+        { name : 'text1', content: 'Ich bestreite die Richtigkeit der personenbezogenen Daten für die Dauer, die es Ihnen ermöglicht, ' +
+              'deren Richtigkeit zu überprüfen\n' +
+              'Dies bezieht sich auf folgende Daten: […]',
+          selected: true },
+        { name : 'text2', content: 'Ich halte die Verarbeitung für unrechtmäßig und Sie haben die Löschung der personenbezogenen Daten ' +
+              'abgelehnt und stattdessen die Einschränkung der Verarbeitung verlangt',
+          selected : true },
+        { name : 'text3', content: 'Sie benötigen die personenbezogenen Daten für Verarbeitungszwecke nicht länger, ich benötige die ' +
+              'Daten allerdings zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen',
+          selected : true },
+        { name : 'text4', content: 'Ich habe bereits gem. Art. 21 Abs. 1 DSGVO Widerspruch gegen die Verarbeitung eingelegt, es steht ' +
+              'jedoch noch nicht fest, ob berechtigte Gründe vorliegen, die die Interessen meiner Person überwiegen',
+          selected : true },
+      ]
+    },
+    {
+      name: 'Beschwerde Aufsichtsbehörde',
+      titleText : 'Beschwerde wegen Verstoß gegen die DSGVO',
+      introText : 'ACHTUNG!! \n\n\nSehr geehrte Damen und Herren,\n\n' +
           'hiermit mache ich mein Recht auf Einschränkung der Verarbeitung gem. Art. 18 Abs. 1 DSGVO geltend. Die betroffenen Daten ' +
           'dürfen daher fortan gem. Art. 18 Abs. 2 DSGVO  lediglich mit meiner Einwilligung oder zur Geltendmachung, Ausübung oder ' +
           'Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen bzw. juristischen Person oder aus ' +
