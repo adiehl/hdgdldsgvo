@@ -6,7 +6,7 @@ export class Templates {
       name: 'DSGVO-Auskunft',
       titleText : 'Datenschutzrechliche Selbstauskunft gemäß DSGVO',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
-          'hiermit mache ich mein Recht aus Art. 15 Abs. 1 DSGVO geltend. Hierfür bitte ich um Bestätigung, ' +
+          'hiermit mache ich mein Recht aus Art. 15 Abs. 3 DSGVO geltend. Hierfür bitte ich um Bestätigung, ' +
           'ob mich betreffende personenbezogene Daten von Ihnen verarbeitet werden. (vgl. Art. 4 Nr. 1 und 2 ' +
           'DSGVO). Sofern dies der Fall ist, beantrage ich weiterhin die Erteilung einer Auskunft.\n' +
           '\n' +
