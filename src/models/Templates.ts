@@ -257,41 +257,6 @@ export class Templates {
               'jedoch noch nicht fest, ob berechtigte Gründe vorliegen, die die Interessen meiner Person überwiegen',
           selected : true },
       ]
-    },
-    {
-      name: 'Beschwerde Aufsichtsbehörde',
-      titleText : 'Beschwerde wegen Verstoß gegen die DSGVO',
-      introText : 'ACHTUNG!! \n\n\nSehr geehrte Damen und Herren,\n\n' +
-          'hiermit mache ich mein Recht auf Einschränkung der Verarbeitung gem. Art. 18 Abs. 1 DSGVO geltend. Die betroffenen Daten ' +
-          'dürfen daher fortan gem. Art. 18 Abs. 2 DSGVO  lediglich mit meiner Einwilligung oder zur Geltendmachung, Ausübung oder ' +
-          'Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen bzw. juristischen Person oder aus ' +
-          'Gründen eines wichtigen öffentlichen Interesses der Union oder eines Mitgliedstaats verarbeitet werden.\n' +
-          '\n' +
-          'Gründe für die Einschränkung der Verarbeitung:' +
-          '\n' +
-          '\n',
-      endClause : '\n' +
-          'Sollten Sie die Einschränkung der Verarbeitung aufheben, bin ich zuvor gem. Art. 18 Abs. 3 DSGVO hierüber in Kenntnis ' +
-          'zu setzen.' +
-          '\n' +
-          '\n' +
-          '\n' +
-          'Mit freundlichen Grüßen,',
-      textblocks : [
-        { name : 'text1', content: 'Ich bestreite die Richtigkeit der personenbezogenen Daten für die Dauer, die es Ihnen ermöglicht, ' +
-              'deren Richtigkeit zu überprüfen\n' +
-              'Dies bezieht sich auf folgende Daten: […]',
-          selected: true },
-        { name : 'text2', content: 'Ich halte die Verarbeitung für unrechtmäßig und Sie haben die Löschung der personenbezogenen Daten ' +
-              'abgelehnt und stattdessen die Einschränkung der Verarbeitung verlangt',
-          selected : true },
-        { name : 'text3', content: 'Sie benötigen die personenbezogenen Daten für Verarbeitungszwecke nicht länger, ich benötige die ' +
-              'Daten allerdings zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen',
-          selected : true },
-        { name : 'text4', content: 'Ich habe bereits gem. Art. 21 Abs. 1 DSGVO Widerspruch gegen die Verarbeitung eingelegt, es steht ' +
-              'jedoch noch nicht fest, ob berechtigte Gründe vorliegen, die die Interessen meiner Person überwiegen',
-          selected : true },
-      ]
-    },
+    }
   ];
 }
