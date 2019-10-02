@@ -6,6 +6,8 @@ export class Company {
   companyZip?: string;
   companyCity?: string;
   companyCountry?: string;
+  companyFax?: string;
+  companyEmail?: string;
   contractNumber?: string;
   remarks?: string;
   letter: Letter[] = [];

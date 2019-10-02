@@ -7,6 +7,14 @@ const jsPDF = require('jspdf');
 @Injectable()
 export class LetterService {
 
+  /***
+   * Creates a PDF from the letter text
+   *
+   * @param {Company} company Company Object with Address
+   * @param {Letter} letter Letter Object with Text / Textblocks
+   * @param {String} sender Sender String with CRLF
+   * @param {String} txt Text of the letter
+   */
   public createPdf(company: Company, letter: Letter, sender, txt = null) {
 
     const doc = new jsPDF({
@@ -63,6 +71,24 @@ export class LetterService {
     doc.save(fileName + '.pdf');
   }
 
+  public generateEmail(company: Company, letter: Letter, sender, txt = null) {
+    if (!txt) {
+      if (letter.rawText) {
+        txt = letter.rawText;
+      } else {
+        txt = this.generateText(company, letter, sender);
+      }
+      return 'mailto:' + company.companyEmail + '?subject=' + encodeURIComponent(letter.name) + '&body=' + encodeURIComponent(txt);
+    }
+  }
+
+  /**
+   * Create just text for the letter
+   *
+   * @param {Company} company Company Object with Address
+   * @param {Letter} letter Letter Object with Text / Textblocks
+   * @param {String} sender Sender String with CRLF
+   */
   public generateText(company, letter, sender): string {
     const senderName = this.getFirstLine(sender);
     // text generation

@@ -12,7 +12,7 @@
   <div class="row">
     <!-- Firmenliste -->
 
-    <div class="col-md-4 order-md-2 mb-4 sidebar bg-light d-md-block d-none">
+    <div class="col-md-5 order-md-2 mb-5 sidebar bg-light d-md-block d-none">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         Vorlage
       </h4>
@@ -38,6 +38,7 @@
               <span class="badge badge-danger float-right ml-1" (click)="editCompany(company, letter)">Edit</span>
               <span *ngIf='letter.printed === undefined' class="badge badge-secondary float-right" (click)="printPdf(company, letter)">PDF</span>
               <span *ngIf='letter.printed !== undefined' class="badge badge-success float-right" (click)="printPdf(company, letter)">PDF</span>
+              <a *ngIf='company.companyEmail !== "" && company.companyEmail !== undefined' class="badge badge-success float-right text-white m-y-1" [href]="email(company, letter)">Email</a>
             </div>
           </li>
         </ul>
@@ -62,7 +63,7 @@
     </div>
 
     <!-- Details -->
-    <main role="main" class="col-md-8 order-md-1">
+    <main role="main" class="col-md-7 order-md-1">
       <app-form [(sender)]="sender" [(templateName)]="templateName" [(templateNames)]="templateNames" [(letter)]="letter" [(companyList)]="companyList" [(currentCompany)]="currentCompany"></app-form>
     </main>
   </div>

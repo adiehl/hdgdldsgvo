@@ -33,6 +33,18 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-6 mb-6">
+        <label for="companyEmail">Email</label>
+        <input [(ngModel)]="currentCompany.companyEmail" name="companyEmail"  type="text" class="form-control" id="companyEmail" placeholder="" value="">
+      </div>
+      <div class="col-md-6 mb-6">
+        <label for="companyFax">Fax</label>
+        <input [(ngModel)]="currentCompany.companyFax" name="companyFax"  type="text" class="form-control" id="companyFax" placeholder="" value="">
+      </div>
+    </div>
+
+
     <div class="mb-3">
       <label for="companyCountry">Land (nur bei Ausland)</label>
       <input [(ngModel)]="currentCompany.companyCountry" name="companyCountry"  type="text" class="form-control" id="companyCountry" placeholder="" value="">
@@ -40,7 +52,6 @@
     <div class="mb-3">
       <label for="contractNumber">Vertragsnummer, Geschäftszeichen, Kennzeichen (Optional)</label>
       <input [(ngModel)]="currentCompany.contractNumber" name="contractNumber"  type="text" class="form-control" id="contractNumber" placeholder="Telefonnummer, Vertragsnummer, Aktenzeichen, etc." value="">
-
     </div>
 
 

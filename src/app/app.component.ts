@@ -95,6 +95,10 @@ export class AppComponent {
     this.saveCompanyList();
   }
 
+  public email(company: Company, letter: Letter) {
+    return this.letterService.generateEmail(company, letter, this.sender);
+  }
+
   /**
    * saves company list in localstorage
    */
