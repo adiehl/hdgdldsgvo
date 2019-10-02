@@ -27,7 +27,7 @@ export class Templates {
           '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : [
         { name : 'text1', content: 'vollständige Auskunft über personenbezogene Daten, die verarbeitet und gespeichert werden',
           selected: true },
@@ -65,7 +65,7 @@ export class Templates {
           '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : []
     },
     {
@@ -83,7 +83,7 @@ export class Templates {
           '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : []
     },
     {
@@ -102,7 +102,7 @@ export class Templates {
           '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : [
         { name : 'text1', content: 'vollständige Auskunft über personenbezogene Daten, die verarbeitet und gespeichert werden (lit. 1)',
           selected: true },
@@ -130,7 +130,7 @@ export class Templates {
       endClause : '\n' +
       '\n' +
       '\n' +
-      'Mit freundlichen Grüßen,',
+      'Mit freundlichen Grüßen',
       textblocks : [
         { name : 'return1', content: 'Es fehlten Konto- bzw. Abrechnungsdaten.',
           selected: true },
@@ -164,7 +164,7 @@ export class Templates {
       endClause : '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : []
     },
     {
@@ -179,7 +179,7 @@ export class Templates {
       endClause : '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : []
     },
     {
@@ -200,7 +200,7 @@ export class Templates {
           'die Empfänger über die Wahrnehmung meiner Rechte auf Löschung aller Links zu den genannten personenbezogenen Daten umfassend ' +
           'unterrichten.' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : [
         { name : 'text1', content: 'Die personenbezogenen Daten sind für die Zwecke, für die sie erhoben oder auf sonstige Weise ' +
               'verarbeitet wurden, nicht mehr notwendig.',
@@ -241,7 +241,7 @@ export class Templates {
           '\n' +
           '\n' +
           '\n' +
-          'Mit freundlichen Grüßen,',
+          'Mit freundlichen Grüßen',
       textblocks : [
         { name : 'text1', content: 'Ich bestreite die Richtigkeit der personenbezogenen Daten für die Dauer, die es Ihnen ermöglicht, ' +
               'deren Richtigkeit zu überprüfen\n' +
