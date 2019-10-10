@@ -186,7 +186,7 @@ export class Templates {
       name: 'Antrag auf Löschung',
       titleText : 'Löschung personenbezogener Daten nach Art. 17 DSGVO',
       introText : 'Sehr geehrte Damen und Herren,\n\n' +
-          'hiermit mache ich mein Recht auf Löschung gem. Art. 17 Abs. 1 DSGVO geltend. Ich fordere Sie herimit auf, ' +
+          'hiermit mache ich mein Recht auf Löschung gem. Art. 17 Abs. 1 DSGVO geltend. Ich fordere Sie hiermit auf, ' +
           'sämtliche bei Ihnen über mich gespeicherten personenbezogenen Daten unverzüglich und vollumfassend zu löschen.\n' +
           '\n' +
           '\n' +
